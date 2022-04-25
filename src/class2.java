@@ -17,10 +17,10 @@ public class class2 {
 
         int pointOfOp=-1;
         // DONE сделать поиски всех возможных из 4 действий независимо, добавить проверку того что действие только одно
-        int pointofPlus=name.indexOf("+");
-        int pointofMinus=name.indexOf("-");
-        int pointofDiv=name.indexOf("/");
-        int pointofMul=name.indexOf("*");
+        int pointofPlus=name.indexOf(" + ");
+        int pointofMinus=name.indexOf(" - ");
+        int pointofDiv=name.indexOf(" / ");
+        int pointofMul=name.indexOf(" * ");
 
         if (
                 pointofPlus == -1 && pointofMinus == -1 && pointofMul == -1 && pointofDiv == -1 //нет никаких знаков операции
@@ -31,16 +31,16 @@ public class class2 {
 
         if ( ! (
                 (pointofPlus != -1 && pointofMinus == -1 && pointofMul == -1 && pointofDiv == -1 //есть только плюс
-                        && name.indexOf("+", pointofPlus+1) == -1 //и плюс только один
+                        && name.indexOf(" + ", pointofPlus+1) == -1 //и плюс только один
                 ) ||
                 (pointofPlus == -1 && pointofMinus != -1 && pointofMul == -1 && pointofDiv == -1 //есть только минус
-                        && name.indexOf("-", pointofMinus+1) == -1 //и минус только один
+                        && name.indexOf(" - ", pointofMinus+1) == -1 //и минус только один
                 ) ||
                 (pointofPlus == -1 && pointofMinus == -1 && pointofMul != -1 && pointofDiv == -1 //есть только умножить
-                        && name.indexOf("*", pointofMul+1) == -1 //и умножить только один
+                        && name.indexOf(" * ", pointofMul+1) == -1 //и умножить только один
                 ) ||
                 (pointofPlus == -1 && pointofMinus == -1 && pointofMul == -1 && pointofDiv != -1 //есть только разделить
-                        && name.indexOf("/", pointofDiv+1) == -1 //и разделить только один
+                        && name.indexOf(" / ", pointofDiv+1) == -1 //и разделить только один
                 ) )
         ) {throw new DataFormatException("Используйте только один знак операции");
             //System.out.println("Ошибка. Больше одного знака операции");
@@ -113,9 +113,9 @@ public class class2 {
         //int v1=Integer.valueOf(c1);
 
         //System.out.println(v1);
-        String c2=name.substring (pointOfOp, pointOfOp+1);
+        String c2=name.substring (pointOfOp, pointOfOp+3);
         //System.out.println(c2);
-        String c3=name.substring (pointOfOp+1);
+        String c3=name.substring (pointOfOp+3);
         int v3=0;
         try {
             v3=Integer.parseInt(c3);
@@ -160,10 +160,10 @@ public class class2 {
         //System.out.println(v3);
         int result=0;
         // System.out.println(c2);
-        if (c2.equals("+")) result = (v1+v3);
-        if (c2.equals("-")) result = (v1-v3);
-        if (c2.equals("*")) result = (v1*v3);
-        if (c2.equals("/")) result = (v1/v3);
+        if (c2.equals(" + ")) result = (v1+v3);
+        if (c2.equals(" - ")) result = (v1-v3);
+        if (c2.equals(" * ")) result = (v1*v3);
+        if (c2.equals(" / ")) result = (v1/v3);
 
         if (isRoman) {
             if (result <1) {
