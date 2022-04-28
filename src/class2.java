@@ -24,7 +24,7 @@ public class class2 {
 
         if (
                 pointofPlus == -1 && pointofMinus == -1 && pointofMul == -1 && pointofDiv == -1 //нет никаких знаков операции
-        ) {throw new DataFormatException("Используйте знак +, -, * или /");
+        ) {throw new DataFormatException("Используйте знак +, -, * или / С ПРОБЕЛАМИ");
             //System.out.println("Ошибка. Нет ни одного знака операции");
             // System.exit(0);
         }
