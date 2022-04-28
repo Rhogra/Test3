@@ -214,4 +214,8 @@ public class class2 {
             if (numOnes == 1) System.out.print("I");
         }
     }
+    public static String calc (String input) {
+        return "resultPrint";
+    }
 }
+
